@@ -2,7 +2,7 @@ import * as codepipeline from '@aws-cdk/aws-codepipeline';
 import * as codepipeline_actions from '@aws-cdk/aws-codepipeline-actions';
 import * as pipelines from '@aws-cdk/pipelines';
 import * as cdk from '@aws-cdk/core';
-import {GreenlinePipelineStage} from './pipeline-stage';
+import {TestFunctionStage} from './pipeline-stage';
 
 export class PipelineStack extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -31,7 +31,7 @@ export class PipelineStack extends cdk.Stack {
         const synthAction = pipelines.SimpleSynthAction.standardNpmSynth({
             sourceArtifact, // Where to get source code to build
             cloudAssemblyArtifact, // Where to place built source
-            buildCommand: 'npm run build', // Language-specific build cmd
+            buildCommand: 'npm run build && npm test', // Language-specific build cmd
         });
 
         const pipeline = new pipelines.CdkPipeline(this, 'Pipeline', {
@@ -41,8 +41,8 @@ export class PipelineStack extends cdk.Stack {
             synthAction,
         });
 
-        const preProdApp = new GreenlinePipelineStage(this, 'Pre-Prod');
-        pipeline.addApplicationStage(preProdApp);
+        const preProdApp = new TestFunctionStage(this, 'Pre-Prod');
+        const preProdStage = pipeline.addApplicationStage(preProdApp);
        
         
       
