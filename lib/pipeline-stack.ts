@@ -17,7 +17,7 @@ export class PipelineStack extends Stack {
 
         // Generates the source artifact from the repo we created in the last step
         const sourceAction = new codepipeline_actions.GitHubSourceAction({
-            actionName: 'GitHub', // Any Git-based source control
+            actionName: 'Source', // Any Git-based source control
             output: sourceArtifact, // Indicates where the artifact is stored
             oauthToken: cdk.SecretValue.secretsManager('github_token'),
             owner: 'daopz',
