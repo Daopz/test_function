@@ -3,6 +3,7 @@ import * as events from "@aws-cdk/aws-events";
 import * as sqs from '@aws-cdk/aws-sqs';
 import * as targets from '@aws-cdk/aws-events-targets';
 import * as cdk from '@aws-cdk/core';
+import path = require('path');
 
 
 export class TestFunctionStack extends cdk.Stack {
@@ -14,7 +15,7 @@ export class TestFunctionStack extends cdk.Stack {
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'hello.handler',
       // code: lambda.Code.fromInline(`exports.handler = ${handler.toString()}`),
-      code: lambda.Code.fromAsset('handler'),
+      code: new lambda.AssetCode(path.resolve(__dirname, 'handler')),
     });
     
     const rule = new events.Rule(this, 'rule', {
