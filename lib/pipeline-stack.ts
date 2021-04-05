@@ -26,7 +26,7 @@ export class PipelineStack extends cdk.Stack {
             sourceAction : new codepipeline_actions.GitHubSourceAction({
                 actionName: 'GitHub', // Any Git-based source control
                 output: sourceArtifact, // Indicates where the artifact is stored
-                oauthToken: SecretValue.secretsManager('github-token'),
+                oauthToken: SecretValue.secretsManager('github_token'),
                 owner: 'daopz',
                 repo: 'test_function',
         }),
