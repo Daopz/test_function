@@ -1,5 +1,5 @@
 {
-  "app": "node bin/test_function.ts",
+  "app": "npx ts-node bin/test_function.ts",
   "context": {
       "@aws-cdk/core:newStyleStackSynthesis": true
   }
