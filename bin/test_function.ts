@@ -5,6 +5,9 @@ import { PipelineStack } from '../lib/pipeline-stack';
 
 const app = new App();
 
-new PipelineStack(app, 'PipelineStack');
+new PipelineStack(app, 'PipelineStack', {
+    env: { account: '507856266964', region: 'us-east-2'},
+    
+});
 
 app.synth();
