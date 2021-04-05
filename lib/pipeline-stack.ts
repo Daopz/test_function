@@ -42,24 +42,9 @@ export class PipelineStack extends cdk.Stack {
         });
 
         const preProdApp = new GreenlinePipelineStage(this, 'Pre-Prod');
-        const preProdStage = pipeline.addApplicationStage(preProdApp);
+        pipeline.addApplicationStage(preProdApp);
        
-        preProdStage.addActions(new pipelines.ShellScriptAction({
-            actionName: 'IntegrationTests',
-            runOrder: preProdStage.nextSequentialRunOrder(),
-            additionalArtifacts: [
-                sourceArtifact
-            ],
-            commands: [
-                'npm install',
-                'npm run build',
-                'npm run integration'
-            ]           
-            
-        }));
-
-        const prodApp = new GreenlinePipelineStage(this, 'Production');
-        const prodStage = pipeline.addApplicationStage(prodApp);
+        
       
         
     }
