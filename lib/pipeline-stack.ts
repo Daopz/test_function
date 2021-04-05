@@ -20,7 +20,7 @@ export class PipelineStack extends Stack {
             actionName: 'GitHub', // Any Git-based source control
             output: sourceArtifact, // Indicates where the artifact is stored
             oauthToken: cdk.SecretValue.secretsManager('github_token'),
-            owner: 'daopz',
+            owner: 'Daopz',
             repo: 'test_function',
             branch: 'main',
             
