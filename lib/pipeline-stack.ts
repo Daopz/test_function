@@ -31,7 +31,7 @@ export class PipelineStack extends Stack {
         const synthAction = pipelines.SimpleSynthAction.standardNpmSynth({
             sourceArtifact, // Where to get source code to build
             cloudAssemblyArtifact, // Where to place built source
-            buildCommand: 'npm run build && npm test', // Language-specific build cmd
+            buildCommand: 'npm run build', // Language-specific build cmd
         });
 
         const pipeline = new pipelines.CdkPipeline(this, 'Pipeline', {
