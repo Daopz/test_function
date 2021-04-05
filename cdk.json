@@ -1,5 +1,5 @@
 {
-  "app": "node bin/test_function.js",
+  "app": "npx ts-node bin/test_function.ts",
   "context": {
     "@aws-cdk/core:enableStackNameDuplicates": "true",
     "aws-cdk:enableDiffNoFail": "true",
