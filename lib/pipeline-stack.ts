@@ -27,8 +27,8 @@ export class PipelineStack extends cdk.Stack {
                 actionName: 'GitHub', // Any Git-based source control
                 output: sourceArtifact, // Indicates where the artifact is stored
                 oauthToken: SecretValue.secretsManager('github-token'),
-                owner: 'Daopz',
-                repo: 'test-function',
+                owner: 'daopz',
+                repo: 'test_function',
         }),
 
             // Builds our source code outlined above into a could assembly artifact
