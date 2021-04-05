@@ -16,6 +16,7 @@ export class TestFunctionStack extends cdk.Stack {
       handler: 'hello.handler',
       // code: lambda.Code.fromInline(`exports.handler = ${handler.toString()}`),
       code: new lambda.AssetCode(path.resolve(__dirname, 'handler')),
+      
     });
     
     const rule = new events.Rule(this, 'rule', {
