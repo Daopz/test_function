@@ -1,11 +1,10 @@
-import {Construct, SecretValue, Stack, StackProps} from '@aws-cdk/core';
 import * as codepipeline from '@aws-cdk/aws-codepipeline';
 import * as codepipeline_actions from '@aws-cdk/aws-codepipeline-actions';
 import * as pipelines from '@aws-cdk/pipelines';
 import * as cdk from '@aws-cdk/core';
 
-export class PipelineStack extends Stack {
-    constructor(scope: Construct, id: string, props?: StackProps) {
+export class PipelineStack extends cdk.Stack {
+    constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
 
        
