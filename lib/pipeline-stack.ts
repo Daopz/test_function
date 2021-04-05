@@ -19,11 +19,11 @@ export class PipelineStack extends Stack {
         const sourceAction = new codepipeline_actions.GitHubSourceAction({
             actionName: 'GitHub', // Any Git-based source control
             output: sourceArtifact, // Indicates where the artifact is stored
-            oauthToken: cdk.SecretValue.secretsManager('github_token'),
+            oauthToken: cdk.SecretValue.plainText('github_token'),
             owner: 'daopz',
             repo: 'test_function',
-            branch: 'main',
-            trigger: codepipeline_actions.GitHubTrigger.WEBHOOK,
+            
+            
         });
 
             // Builds our source code outlined above into a could assembly artifact
